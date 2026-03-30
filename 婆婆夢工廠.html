@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>婆婆夢工廠 | 找回家的溫度</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;500;700&family=ZCOOL+XiaoWei&display=swap" rel="stylesheet">
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#ff8585',    
+                        secondary1: '#d4a373', 
+                        secondary2: '#e8d0b5', 
+                        dark: '#4a3f35',       
+                    },
+                    borderRadius: {
+                        'modern': '1.5rem',    
+                    },
+                    fontFamily: {
+                        'sans': ['Noto Sans TC', 'sans-serif'],
+                        'title': ['ZCOOL XiaoWei', 'serif'],
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        body {
+            font-family: 'Noto Sans TC', sans-serif;
+            scroll-behavior: smooth;
+            background-color: #fffcf9;
+        }
+
+        /* 柔和漂浮動畫 */
+        @keyframes float {
+            0% { transform: translateY(0px) rotate(0deg); }
+            50% { transform: translateY(-10px) rotate(1deg); }
+            100% { transform: translateY(0px) rotate(0deg); }
+        }
+        .animate-float {
+            animation: float 6s ease-in-out infinite;
+        }
+
+        /* 滾動淡入效果 */
+        .fade-in-section {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+        }
+        .fade-in-section.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* SVG 圖形卡片容器 */
+        .svg-icon-bg {
+            width: 100%;
+            height: 220px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(to bottom right, #fff9f4, #fff0e5);
+        }
+    </style>
+</head>
+<body class="text-dark">
+
+    <!-- 導航欄 -->
+    <nav class="fixed w-full z-50 bg-white/80 backdrop-blur-md border-b border-secondary2/30">
+        <div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
+            <div class="flex items-center gap-2">
+                <div class="bg-primary p-1.5 rounded-modern text-white">
+                    <i data-lucide="heart"></i>
+                </div>
+                <span class="text-2xl font-bold font-title tracking-wider text-primary">婆婆夢工廠</span>
+            </div>
+            <div class="hidden md:flex items-center gap-8 font-medium">
+                <a href="#mission" class="hover:text-primary transition-colors">品牌故事</a>
+                <a href="#services" class="hover:text-primary transition-colors">精選服務</a>
+                <a href="#trust" class="hover:text-primary transition-colors">信任口碑</a>
+                <a href="#order" class="bg-primary text-white px-6 py-2.5 rounded-modern hover:shadow-lg hover:shadow-primary/30 transition-all">預約奶奶</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- 首屏 Hero Section (保留奶奶切魚圖片) -->
+    <header class="relative pt-32 pb-20 overflow-hidden min-h-screen flex items-center">
+        <div class="max-w-7xl mx-auto px-6 grid md:grid-cols-2 gap-12 items-center">
+            <div class="z-10">
+                <h1 class="text-5xl lg:text-7xl font-title font-black leading-tight mb-6 text-dark">
+                    需要老婆婆？<br>我們有 <span class="text-primary italic">：）</span>
+                </h1>
+                <p class="text-xl text-gray-500 mb-10 leading-relaxed max-w-lg">
+                    我們有各種老婆婆，沒有你找不到，只有你想不到！讓家的溫暖與智慧，隨時來到你的身邊。
+                </p>
+                <div class="flex flex-col sm:flex-row gap-4">
+                    <button class="bg-primary text-white text-lg font-bold px-10 py-5 rounded-modern shadow-xl shadow-primary/30 hover:scale-105 transition-transform">
+                        租借奶奶！！！
+                    </button>
+                </div>
+            </div>
+            <div class="relative">
+                <!-- 這裡保留了最初的奶奶圖片 -->
+                <div class="relative z-10 rounded-modern overflow-hidden shadow-2xl border-[12px] border-white transform rotate-2 hover:rotate-0 transition-transform duration-500">
+                    <img src="https://images.unsplash.com/photo-1581579438747-1dc8d17bbce4?q=80&w=1000&auto=format&fit=crop" alt="[奶奶切魚圖片]" class="w-full h-auto">
+                </div>
+                <div class="absolute -bottom-6 -left-6 w-32 h-32 bg-secondary2 rounded-modern -z-10"></div>
+                <div class="absolute -top-10 right-10 bg-white p-4 rounded-modern shadow-lg z-20 flex items-center gap-3 animate-float">
+                    <div class="w-10 h-10 bg-green-100 rounded-full flex items-center justify-center text-green-600">
+                        <i data-lucide="check-circle-2"></i>
+                    </div>
+                    <div>
+                        <p class="text-xs text-gray-400">已成功媒合</p>
+                        <p class="font-bold">1,280+ 個家庭</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- 品牌使命 -->
+    <section id="mission" class="py-24 bg-white fade-in-section">
+        <div class="max-w-4xl mx-auto px-6 text-center">
+            <span class="text-primary font-bold tracking-widest uppercase mb-4 block text-sm">Our Mission</span>
+            <h2 class="text-4xl font-title font-black mb-8">傳遞那份跨越時間的溫柔</h2>
+            <p class="text-lg text-gray-500 leading-[2] mb-12 italic">
+                「婆婆夢工廠」成立的初衷，是為了讓孤單的靈魂再次與溫暖相遇。我們媒合經驗豐富、充滿愛心的長者，將他們的手藝、故事與耐心，帶入每一個需要愛的角落。
+            </p>
+            <div class="grid grid-cols-3 gap-8 border-t border-secondary2/20 pt-12">
+                <div>
+                    <div class="text-4xl font-title font-black text-secondary1">500+</div>
+                    <div class="text-sm text-gray-400">在籍奶奶</div>
+                </div>
+                <div>
+                    <div class="text-4xl font-title font-black text-secondary1">15+</div>
+                    <div class="text-sm text-gray-400">服務城市</div>
+                </div>
+                <div>
+                    <div class="text-4xl font-title font-black text-secondary1">4.9</div>
+                    <div class="text-sm text-gray-400">平均評分</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 精選服務卡片 (使用 SVG 繪製，確保不會消失) -->
+    <section id="services" class="py-24 bg-secondary2/20 fade-in-section">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl font-title font-black mb-4">沒有你找不到，只有你想不到</h2>
+                <p class="text-gray-500">無論是生活中的疑難雜症，還是心靈的缺口，奶奶們都在這裡。</p>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-10">
+                <!-- 服務 1 -->
+                <div class="bg-white rounded-modern overflow-hidden shadow-xl hover:shadow-2xl transition-all group">
+                    <div class="svg-icon-bg">
+                        <svg width="120" height="120" viewBox="0 0 120 120" fill="none" class="group-hover:scale-110 transition-transform">
+                            <circle cx="60" cy="60" r="50" fill="#FFE4E4"/>
+                            <path d="M40 70H80V85C80 87.7614 77.7614 90 75 90H45C42.2386 90 40 87.7614 40 85V70Z" fill="#ff8585" stroke="#4a3f35" stroke-width="2"/>
+                            <path d="M45 40C45 35 50 30 60 30C70 30 75 35 75 40V70H45V40Z" fill="white" stroke="#4a3f35" stroke-width="2"/>
+                            <path d="M60 20C60 20 62 23 60 26" stroke="#ff8585" stroke-width="2" class="animate-bounce"/>
+                        </svg>
+                    </div>
+                    <div class="p-8">
+                        <h3 class="text-2xl font-bold mb-4">懷舊滋味奶奶</h3>
+                        <p class="text-gray-500 mb-6 leading-relaxed">想念媽媽或奶奶的手藝嗎？從紅燒肉到手包水餃，每一口都是家的味道。</p>
+                        <button class="w-full py-3 bg-secondary2/30 text-secondary1 font-bold rounded-modern">預約廚神奶奶</button>
+                    </div>
+                </div>
+
+                <!-- 服務 2 -->
+                <div class="bg-white rounded-modern overflow-hidden shadow-xl hover:shadow-2xl transition-all group border-2 border-primary/20 scale-105 z-10">
+                    <div class="svg-icon-bg bg-primary/5">
+                        <svg width="120" height="120" viewBox="0 0 120 120" fill="none" class="group-hover:scale-110 transition-transform">
+                            <circle cx="60" cy="60" r="50" fill="#E8D0B5"/>
+                            <path d="M40 50C40 40 50 35 60 35C70 35 80 40 80 50C80 65 70 75 60 75C50 75 40 65 40 50Z" fill="white" stroke="#4a3f35" stroke-width="2"/>
+                            <circle cx="50" cy="85" r="5" fill="#ff8585" class="animate-pulse"/>
+                            <circle cx="70" cy="85" r="5" fill="#ff8585" class="animate-pulse"/>
+                        </svg>
+                    </div>
+                    <div class="p-8">
+                        <h3 class="text-2xl font-bold mb-4 text-primary">故事陪伴奶奶</h3>
+                        <p class="text-gray-500 mb-6 leading-relaxed text-sm">如果您感到迷茫或孤單，讓奶奶聽您傾訴，分享那些跨越半世紀的人生智慧。</p>
+                        <button class="w-full py-3 bg-primary text-white font-bold rounded-modern shadow-lg shadow-primary/20">預約心靈夥伴</button>
+                    </div>
+                </div>
+
+                <!-- 服務 3 -->
+                <div class="bg-white rounded-modern overflow-hidden shadow-xl hover:shadow-2xl transition-all group">
+                    <div class="svg-icon-bg">
+                        <svg width="120" height="120" viewBox="0 0 120 120" fill="none" class="group-hover:scale-110 transition-transform">
+                            <circle cx="60" cy="60" r="50" fill="#FFF4E4"/>
+                            <circle cx="60" cy="60" r="25" fill="#d4a373" stroke="#4a3f35" stroke-width="2"/>
+                            <path d="M45 45L75 75M75 45L45 75" stroke="white" stroke-width="4" stroke-linecap="round"/>
+                        </svg>
+                    </div>
+                    <div class="p-8">
+                        <h3 class="text-2xl font-bold mb-4">編織大師奶奶</h3>
+                        <p class="text-gray-500 mb-6 leading-relaxed">想學毛線編織、裁縫或是刺繡嗎？奶奶親自手把手教您，傳遞指尖的溫潤。</p>
+                        <button class="w-full py-3 bg-secondary2/30 text-secondary1 font-bold rounded-modern">預約手作導師</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 信任口碑 -->
+    <section id="trust" class="py-24 bg-white fade-in-section">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="bg-dark rounded-[3.5rem] p-12 md:p-20 relative overflow-hidden shadow-2xl">
+                <div class="grid md:grid-cols-2 gap-12 items-center relative z-10">
+                    <div>
+                        <h2 class="text-4xl font-title font-black text-white mb-6">為什麼選擇我們的奶奶？</h2>
+                        <ul class="space-y-6">
+                            <li class="flex items-center gap-4">
+                                <i data-lucide="shield-check" class="text-primary w-6 h-6"></i>
+                                <span class="text-secondary2 font-bold">所有奶奶皆經過嚴格身分與心理審核</span>
+                            </li>
+                            <li class="flex items-center gap-4">
+                                <i data-lucide="award" class="text-primary w-6 h-6"></i>
+                                <span class="text-secondary2 font-bold">超過 30 年的人生閱歷與手藝認證</span>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="bg-white/10 backdrop-blur-md p-10 rounded-modern border border-white/20 italic text-white text-lg">
+                        「當初只是抱著試試看的心態，沒想到這份陪伴真的讓我感受到了久懷的家庭溫暖。奶奶的紅燒肉真的很有魔力！」
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-white pt-20 pb-10 border-t border-secondary2/30">
+        <div class="max-w-7xl mx-auto px-6 text-center">
+            <div class="flex items-center justify-center gap-2 mb-6">
+                <div class="bg-primary p-1.5 rounded-modern text-white">
+                    <i data-lucide="heart"></i>
+                </div>
+                <span class="text-2xl font-bold font-title tracking-wider text-primary">婆婆夢工廠</span>
+            </div>
+            <p class="text-gray-400 text-xs italic">© 2026 婆婆夢工廠. 一切為了溫暖與傳承.</p>
+        </div>
+    </footer>
+
+    <script>
+        lucide.createIcons();
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) entry.target.classList.add('visible');
+            });
+        }, { threshold: 0.1 });
+        document.querySelectorAll('.fade-in-section').forEach(s => observer.observe(s));
+    </script>
+</body>
+</html>
